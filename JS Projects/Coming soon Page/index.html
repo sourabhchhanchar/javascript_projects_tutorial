@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming soon coundown clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="images/sun.png" class="logo">
+        <div class="content">
+            <p>Website is Under Maintainance</p>
+            <h1>We are <span>Launching</span> soon...</h1>
+            <div class="launch-time">
+                <div>
+                    <p id="days">00</p>
+                    <span>Days</span>
+                </div>
+                <div>
+                    <p id="hours">00</p>
+                    <span>Hours</span>
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <span>Minutes</span>
+                </div>
+                <div>
+                    <p id="seconds">00</p>
+                    <span>Seconds</span>
+                </div>
+            </div>
+            <button type="button">Learn more</button>
+        </div>
+   <img src="images/rocket1.png" class="rocket">
+    </div>
+
+    
+
+    <script>
+         //for dark theme
+         let logo = document.querySelector('.logo');
+         let container = document.querySelector('.rocket');
+         logo.onclick = function(){
+            document.body.classList.toggle('dark-theme');
+           if( document.body.classList.contains('dark-theme')){
+            logo.src = 'images/moon.png';
+            container.src = 'images/rocket2.png';
+           }else{
+            logo.src = 'images/sun.png'
+            container.src = 'images/rocket1.png';
+           }
+
+         };
+
+        //for Timer Coundown
+     var countDown = new Date("JUNE 23 , 2025 00:00:00").getTime();
+     var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = countDown - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerHTML = days;
+        document.getElementById('hours').innerHTML = hours;
+        document.getElementById('minutes').innerHTML = minutes;
+        document.getElementById('seconds').innerHTML = seconds;
+
+        if(distance < 0){
+            clearInterval(x);
+            document.getElementById('days').innerHTML = '00';
+            document.getElementById('hours').innerHTML = '00';
+            document.getElementById('minutes').innerHTML = '00';
+            document.getElementById('seconds').innerHTML = '00';
+        }
+
+     },1000);
+
+    </script>
+</body>
+</html>

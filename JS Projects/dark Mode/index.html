@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dakr or Light Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img id="logo" src="images/logo.png" alt="logo">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            <img src="images/moon.png" id="icon">
+        </nav>
+        <div class="info">
+            <h1>I'm <span>Sourabbh</span></h1>
+            <p>I am a software engineer in tcs.I was worked in tcs from past 2 years.
+                <br>I have 1 year experience in java fullstack development and last 
+                <br>1 year experience in Android development.</p>
+                <a href="#">Download CV</a>
+        </div>
+        <div class="img-box">
+            <img src="images/pattern.png" alt="back-img">
+            <img id='man'src="images/man.jpg" alt="main-img">
+        </div>
+    </div>
+    
+    <script>
+        const icon = document.getElementById('icon');
+        icon.onclick=function(){
+            document.body.classList.toggle('dark-theme');
+            if(document.body.classList.contains('dark-theme')){
+                icon.src='images/sun.png';
+            }else{
+                icon.src='images/moon.png';
+            }
+        }
+    </script>
+</body>
+</html>
